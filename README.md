@@ -1,41 +1,87 @@
-### Regras da aplicação
+# Daily Diet API 🥗
 
-- [X] Deve ser possível registrar uma refeição feita, com as seguintes informações:
-    - [X] Nome
-    - [X] Descrição
-    - [X] Data e Hora
-    - [X] Está dentro ou não da dieta
-- [X] Deve ser possível editar uma refeição, podendo alterar todos os dados acima
-- [X] Deve ser possível apagar uma refeição
-- [X] Deve ser possível listar todas as refeições de um usuário
-- [X] Deve ser possível visualizar uma única refeição
-- [X] As informações devem ser salvas em um banco de dados
+API para gerenciamento de refeições e controle de dieta.
 
-## Começando
+Este projeto permite que um usuário registre, edite, visualize e apague refeições, com informações sobre se está ou não dentro da dieta.  
+As informações são armazenadas em banco de dados.
 
-**Clone o projeto e acesse a pasta**
+---
+
+## ✨ Funcionalidades
+
+- ✅ Registrar uma refeição:
+  - Nome
+  - Descrição
+  - Data e Hora
+  - Indicação se está ou não dentro da dieta
+- ✅ Editar uma refeição
+- ✅ Apagar uma refeição
+- ✅ Listar todas as refeições de um usuário
+- ✅ Visualizar uma única refeição
+- ✅ Persistência em banco de dados (SQLite ou MySQL)
+- ✅ Proteção com autenticação via login
+
+---
+
+## 🚀 Tecnologias
+
+- Python 3.13+
+- Flask
+- Flask-SQLAlchemy
+- Flask-Login
+- SQLite ou MySQL (via Docker)
+
+---
+
+## 🛠️ Regras da aplicação
+
+- [x] Deve ser possível registrar uma refeição feita
+- [x] Deve ser possível editar uma refeição
+- [x] Deve ser possível apagar uma refeição
+- [x] Deve ser possível listar todas as refeições de um usuário
+- [x] Deve ser possível visualizar uma única refeição
+- [x] As informações devem ser salvas em um banco de dados
+
+---
+
+## 🏁 Começando
+
+### 📥 Clone o projeto
 
 ```bash
-$ git clone https://github.com/thoomassf/daily-diet-api.git && cd daily-diet-api
-$ gh repo clone thoomassf/daily-diet-api && cd daily-diet-api
+git clone https://github.com/thoomassf/daily-diet-api.git && cd daily-diet-api
+# ou
+gh repo clone thoomassf/daily-diet-api && cd daily-diet-api
 ```
 
-**Siga os passos abaixo**
+### ⚙️ Instalação das dependências
 ```bash
-# Instalar as dependências
-pip install -q requirements.txt
+pip install -r requirements.txt
+```
 
-# Crie o arquivo .env com base no .env.example
+### 🔐 Configuração do ambiente
+Crie o arquivo .env com base no .env.example:
+```bash
+cp .env.example .env
+```
+Edite suas variáveis de ambiente conforme necessário.
 
-# Iniciar banco dados no docker (MySQL)
-docker compose up -d
-
-# Iniciar banco de dados local (SQLite)
+### 📈 Inicializar banco de dados
+Opção 1: Banco de dados no Docker (MySQL)
+```bash
+docker-compose up -d
+```
+Opção 2: Banco de dados local (SQLite)
+```bash
 flask shell
-db.create_all()
-db.session.commit()
-exit()
+>>> from database import db
+>>> db.create_all()
+>>> db.session.commit()
+>>> exit()
+```
 
-# Iniciar o servidor
+### 🚀 Rodar o servidor
+```bash
 flask run --reload
 ```
+A aplicação estará disponível em: http://localhost:5000
